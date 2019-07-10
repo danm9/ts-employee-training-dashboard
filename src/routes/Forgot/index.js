@@ -1,6 +1,5 @@
 import { Component } from "preact";
 import Style from "./forgot.css";
-import { Sidebar } from "../../components/sidebar";
 
 export default class Forgot extends Component {
   render() {
@@ -19,7 +18,9 @@ export default class Forgot extends Component {
           />
           <button type="submit">Reset Password</button>
           <button type="button" className={Style.cancelbtn}>
-            <a href="/login">Cancel</a>
+            <a href="/login" style="color: white">
+              Cancel
+            </a>
           </button>
         </div>
       </div>

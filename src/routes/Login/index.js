@@ -24,17 +24,26 @@ export default class Login extends Component {
             name="psw"
             required
           />
-          <button type="submit">Login</button>
+          <button type="submit">
+            <a href="/" style="color:white">
+              Login
+            </a>
+          </button>
           <label>
             <input type="checkbox" checked="checked" name="remember" /> Remember
             me
           </label>
-          <button type="button" className={Style.cancelbtn}>
-            Cancel
+          <br />
+          <button className={Style.createbtn}>
+            <a href="/createaccount" style="color: white">
+              Create an account
+            </a>
           </button>
-          <span className={Style.psw}>
-            <a href="/forgot">Forgot Password</a>
-          </span>
+          <button className={Style.psw}>
+            <a href="/forgot" style="color: white">
+              Forgot Password
+            </a>
+          </button>
         </div>
       </div>
     );

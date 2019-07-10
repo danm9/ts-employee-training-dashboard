@@ -128,9 +128,7 @@ button:hover {
 
 .container {
   margin-top: 100px;
-
-  margin-left: auto;
-  margin-right: auto;
+  margin-right: 200px;
   justify-content: center;
   width: 600px;
   font-family: "Roboto", sans-serif;

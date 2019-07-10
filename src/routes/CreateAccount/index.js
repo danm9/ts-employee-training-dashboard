@@ -34,9 +34,9 @@ class CreateAccount extends Component {
     return (
       <div>
         <h1>Sign up here!</h1>
-        <p>Username is: {username}</p>
+
         <form onSubmit={this.handleSubmit} style={{ border: "1px solid #ccc" }}>
-          <div className="container">
+          <div className={Style.container}>
             <h1>Career Slayer </h1>
             <label for="email">
               <b>Email</b>
@@ -83,12 +83,16 @@ class CreateAccount extends Component {
               Remember me{" "}
             </label>
             <div className="cearfix">
-              <button type="button" className="cancelbtn">
-                Cancel
+              <button type="button" className={Style.signupbtn}>
+                <a href="/" style="color:white">
+                  Sign Up
+                </a>
               </button>
-              <input type="submit" className="signupbtn">
-                Sign Up
-              </input>
+              <button type="button" className={Style.cancelbtn}>
+                <a href="/login" style="color: white">
+                  Already have an account?
+                </a>
+              </button>
             </div>
           </div>
         </form>
