@@ -26,25 +26,28 @@ export default class Activities extends Component {
         <div className={style.column}>
           {[
             {
-              name: "Tim",
+              name: "React Training",
               description:
                 "Today I'm working on getting my development environment setup and working on various debug tasks",
-              position: "iOS Developer"
+              position: "CNST"
             },
             {
-              name: "Jasper",
-              description: "some description",
-              position: "iOS Developer"
+              name: "Clean Coder",
+              description:
+                "Today I'm working on getting my development environment setup and working on various debug tasks",
+              position: "QUAL"
             },
             {
-              name: "Bob",
-              description: "some description",
-              position: "iOS Developer"
+              name: "MVC PluralSight Training",
+              description:
+                "Today I'm working on getting my development environment setup and working on various debug tasks",
+              position: "CNST"
             },
             {
-              name: "John",
-              description: "some description",
-              position: "iOS Developer"
+              name: "Code Reviews",
+              description:
+                "Today I'm working on getting my development environment setup and working on various debug tasks",
+              position: "QUAL"
             }
           ].map(i => {
             return (
