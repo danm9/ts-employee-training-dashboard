@@ -1,5 +1,6 @@
 body {
   font-family: "Roboto", sans-serif;
+  line-height: 1.4;
 }
 
 .sidenav {
@@ -41,7 +42,6 @@ body {
   padding-top: 20px;
   font-family: "Roboto", sans-serif;
   grid-row-gap: 15px;
-  font-weight: 200;
 }
 
 .introductory,
@@ -51,6 +51,7 @@ body {
   border: 2px #333740 solid;
   text-align: center;
   font-size: 23px;
+  padding-top: 7px;
 }
 
 .paragraph1,
@@ -58,8 +59,9 @@ body {
 .paragraph3,
 .paragraph4 {
   padding-left: 15px;
+  padding-top: 10px;
   border: 2px #333740 solid;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .knowledgeAreas {
@@ -71,8 +73,7 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  font-weight: 200;
+  font-size: 18px;
 }
 
 .area,
@@ -104,8 +105,8 @@ body {
 
 .goals {
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  font-weight: 200;
+  font-size: 18px;
+
   padding-left: 55px;
   padding-top: 10px;
 }

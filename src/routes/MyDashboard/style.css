@@ -1,9 +1,11 @@
 body {
   font-family: "Roboto", sans-serif;
+
   margin: 0;
   overflow: hidden;
   overflow-y: auto;
 }
+
 .app {
   margin-left: 160px;
 }
@@ -77,71 +79,76 @@ body {
 }
 
 .main {
-  padding-left: 135px;
+  padding-left: 65px;
   padding-bottom: 7px;
-  font-family: "Roboto", sans-serif;
-  font-size: 33px;
+  font-size: 30px;
+
+  line-height: 1.4;
   padding-top: 15px;
   color: #d82631;
 }
 
 .profile {
   display: grid;
-  font-family: "Roboto", sans-serif;
   font-size: 17px;
-  min-width: 700px;
-  max-width: 1200px;
+  line-height: 1.4;
   width: auto;
-  height: 90px;
-  padding-left: 135px;
-  padding-right: 100px;
-  padding-top: 10px;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(2, 55px);
+  height: auto;
+
+  padding-left: 30px;
+  padding-right: 80px;
+  padding-top: 20px;
+  grid-template-columns: 80px repeat(3, 1fr);
+  grid-template-rows: repeat(2, 50px);
+  border: #333740 solid 2px;
+  margin-right: 65px;
+  margin-left: 65px;
+}
+
+img {
+  border-radius: 50%;
 }
 
 .firstName,
 .lastName,
-.dateOfBirth {
-  border-top: #333740 solid 2px;
-  padding-top: 20px;
+.startDate {
+  /*border-top: #333740 solid 2px;*/
+  padding-top: 5px;
 }
 
 .skills {
-  grid-column-start: 1;
+  grid-column-start: 2;
   grid-column-end: 4;
-  border-bottom: #333740 solid 2px;
-  padding-top: 13px;
+  padding-bottom: 10px;
+  /*border-bottom: #333740 solid 2px;*/
 }
 
-.firstName,
-.skills {
-  border-left: #333740 solid 2px;
-  padding-left: 70px;
-}
-
-.dateOfBirth,
-.skills {
-  border-right: #333740 solid 2px;
-}
-
-.box {
+/*.box {
   font-family: "Roboto", sans-serif;
-  font-size: 23px;
+  font-size: 16px;
   padding-top: 60px;
   text-align: center;
-  padding-left: 180px;
+  padding-left: 295px;
   padding-right: 170px;
   max-width: 1300px;
+}*/
+.knowledgeArea {
+  grid-column-start: 2;
+  grid-column-end: 13;
+  background-color: #d82631;
+  color: white;
+  padding-left: 128px;
 }
 
 .table {
-  padding-left: 350px;
-  padding-right: 350px;
+  justify-content: center;
   padding-bottom: 40px;
   display: grid;
   grid-template-columns: 125px repeat(11, 35px);
-  grid-template-rows: 200px repeat(4, 30px);
+  grid-template-rows: 30px 210px repeat(4, 30px);
+  padding-top: 40px;
+  font-size: 17px;
+  line-height: 1.4;
 }
 
 .configurationManagement,
@@ -157,11 +164,9 @@ body {
 .testing {
   border: 1px #333740 solid;
   text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 200;
-  writing-mode: vertical-rl;
-  /*text-orientation: sideways-left;*/
+
+  writing-mode: vertical-lr;
+
   transform: rotate(180deg);
   background-color: #d82631;
   color: white;
@@ -175,17 +180,22 @@ body {
 .blank {
   border: 1px #333740 solid;
   text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 200;
+
   background-color: #d82631;
   color: white;
 }
 
+.capabilityLevel {
+  padding-top: 100px;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
 .grid2 {
-  height: 700px;
+  height: auto;
   width: auto;
-  max-width: 1200px;
+  min-height: 500px;
+  max-height: 1200px;
   display: grid;
   grid-template-columns: 15% 85%;
   grid-template-rows: 7% 23% 30% 40%;
@@ -202,8 +212,7 @@ body {
 .professionalExperience,
 .blank3 {
   border-bottom: 2px #333740 solid;
-  font-family: "Roboto", sans-serif;
-  font-size: 21px;
+
   font-weight: 200px;
 }
 

@@ -17,6 +17,7 @@ import Forgot from "../routes/Forgot";
 import About from "../routes/About";
 import PersonalLibrary from "../routes/PersonalLibrary";
 import PrivateRoute from "../routes/PrivateRoute";
+import Activities from "../routes/Activities";
 
 Parse.initialize("your_app_id", "client_key");
 Parse.serverURL = "http://localhost:1337/parse";
@@ -38,17 +39,18 @@ export default class App extends Component {
         </div>
         <div className={"AppContainer"}>
           <Router onChange={this.handleRoute}>
+            <Route path="/" component={MyDashboard} />
             <Route path="/About" component={About} />
-            <Route path="/" component={CapabilityLevels} />
+            <Route path="/Library" component={Library} />
             <Route path="/createaccount" component={CreateAccount} />
             <Route path="/forgot" component={Forgot} />
             <Route
-              path="/:capabilityitem/:knowledgearea?"
+              path="/:capabilityitem/:knowledgearea"
               component={KnowledgeArea}
             />
-            <Route path="/Library" component={Library} />
             <Route path="/login" component={Login} />
-            <Route path="/MyDashboard" component={MyDashboard} />
+            <Route path="/forgot" component={Forgot} />
+            <Route path="/Activities" component={Activities} />
             <Route path="/PersonalLibrary" component={PersonalLibrary} />
           </Router>
         </div>
@@ -66,9 +68,9 @@ const authenticating = () => {
       url: "http://localhost:1300/session",
       method: "post",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      data: { token: window.localStorage.session },
+      data: { token: window.localStorage.session }
     }).then(response => {
       console.log(response.data);
 
@@ -88,5 +90,5 @@ const authenticating = () => {
 
 // To help with authentication later!
 const auth = {
-  isAuthenticated: authenticating(),
+  isAuthenticated: authenticating()
 };

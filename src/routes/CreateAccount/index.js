@@ -1,4 +1,4 @@
-import { h, Component } from "preact";
+import { Component } from "preact";
 import Style from "./style.css";
 
 class CreateAccount extends Component {
@@ -9,7 +9,7 @@ class CreateAccount extends Component {
       password: "",
       username: "",
       firstName: "",
-      lastName: "",
+      lastName: ""
     };
   }
 
@@ -27,7 +27,7 @@ class CreateAccount extends Component {
   handleInputChange = event => {
     event.preventDefault();
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
   };
 
@@ -37,7 +37,7 @@ class CreateAccount extends Component {
       <div>
         <h1>Sign up here!</h1>
         <form onSubmit={this.handleSubmit} style={{ border: "1px solid #ccc" }}>
-          <div className="container">
+          <div className={Style.container}>
             <h1>Career Slayer </h1>
             <label htmlFor="firstName">
               <b>First Name </b>{" "}
@@ -104,12 +104,16 @@ class CreateAccount extends Component {
               Remember me{" "}
             </label>
             <div className="cearfix">
-              <button type="button" className="cancelbtn">
-                Cancel
+              <button type="button" className={Style.signupbtn}>
+                <a href="/" style="color:white">
+                  Sign Up
+                </a>
               </button>
-              <input type="submit" className="signupbtn">
-                Sign Up
-              </input>
+              <button type="button" className={Style.cancelbtn}>
+                <a href="/login" style="color: white">
+                  Already have an account?
+                </a>
+              </button>
             </div>
           </div>
         </form>

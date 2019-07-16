@@ -19,31 +19,31 @@ const handleSideBarOnClick = id => {
     case RouteIDs.PERSONALLIBRARY:
       route("/PersonalLibrary", true);
       break;
+    case RouteIDs.ACTIVITIES:
+      route("/Activities", true);
+      break;
     case RouteIDs.ABOUT:
       route("/About", true);
       break;
-
-    /*    case RouteIDs.INBOX:
-      route("/indox", true);
-      break;*/
+    case RouteIDs.SIGNOUT:
+      route("/login", true);
+      break;
   }
 };
 
 const DispenseItem = (name, id, onClickHandler) => {
   return (
-    <ListItem
+    <div
+      className={Style.listItemGrid}
       id={id}
       onClick={() => {
         onClickHandler(id);
       }}
     >
-      <ListIcon name="github" size="small" verticalAlign="middle" />
-      <ListContent>
-        <ListHeader>
-          <a className={Style.sidebarItem}> {name} </a>{" "}
-        </ListHeader>{" "}
-      </ListContent>{" "}
-    </ListItem>
+      <div className={Style.listItem}>
+        <p className={Style.sidebarItem}> {name} </p>
+      </div>
+    </div>
   );
 };
 /**
@@ -61,36 +61,35 @@ const GenerateItems = (titles, ids, onClickHandler) => {
 };
 
 export const Sidebar = props => {
-  //const ItemTitles = ["Course Library", "About"];
-  //const ItemId = [RouteIDs.LIBRARY, RouteIDs.DASHBOARD];
   const ItemTitles = [
     "My Dashboard",
+    "Activities",
     "Course Library",
     "Personal Library",
-    "About"
+    "About",
+    "Sign Out"
   ];
-  //const ItemTitles = ["Personal Progress", "Course Library"];
-  //const ItemId = [RouteIDs.DASHBOARD, RouteIDs.LIBRARY];
-  //const ItemTitles = ["Personal Progress", "Course Library"];
+
   const ItemId = [
     RouteIDs.DASHBOARD,
+    RouteIDs.ACTIVITIES,
     RouteIDs.LIBRARY,
     RouteIDs.PERSONALLIBRARY,
-    RouteIDs.ABOUT
+    RouteIDs.ABOUT,
+    RouteIDs.SIGNOUT
   ];
   return (
     <div className={Style.sidebar}>
-      <List divided relaxed>
-        {" "}
-        {GenerateItems(ItemTitles, ItemId, handleSideBarOnClick)}{" "}
-      </List>{" "}
+      {GenerateItems(ItemTitles, ItemId, handleSideBarOnClick)}{" "}
     </div>
   );
 };
 
 export const RouteIDs = {
   DASHBOARD: "my-dashboard",
+  ACTIVITIES: "Activities",
   LIBRARY: "Library",
   PERSONALLIBRARY: "Personal Library",
-  ABOUT: "About"
+  ABOUT: "About",
+  SIGNOUT: "Sign Out"
 };
