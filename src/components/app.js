@@ -39,19 +39,40 @@ export default class App extends Component {
         </div>
         <div className={"AppContainer"}>
           <Router onChange={this.handleRoute}>
-            <Route path="/" component={MyDashboard} />
-            <Route path="/About" component={About} />
-            <Route path="/Library" component={Library} />
+            <PrivateRoute
+              path="/"
+              component={MyDashboard}
+              auth={() => authenticating()}
+            />
+            <PrivateRoute
+              path="/About"
+              component={About}
+              auth={() => authenticating()}
+            />
+            <PrivateRoute
+              path="/Library"
+              component={Library}
+              auth={() => authenticating()}
+            />
             <Route path="/createaccount" component={CreateAccount} />
             <Route path="/forgot" component={Forgot} />
-            <Route
+            <PrivateRoute
               path="/:capabilityitem/:knowledgearea"
+              auth={() => authenticating()}
               component={KnowledgeArea}
             />
             <Route path="/login" component={Login} />
             <Route path="/forgot" component={Forgot} />
-            <Route path="/Activities" component={Activities} />
-            <Route path="/PersonalLibrary" component={PersonalLibrary} />
+            <PrivateRoute
+              path="/Activities"
+              auth={() => authenticating()}
+              component={Activities}
+            />
+            <PrivateRoute
+              path="/PersonalLibrary"
+              component={PersonalLibrary}
+              auth={() => authenticating()}
+            />
           </Router>
         </div>
       </div>
