@@ -26,12 +26,6 @@ class CreateAccount extends Component {
       },
       data: JSON.stringify(data)
     });
-
-    // const xhttp = new XMLHttpRequest();
-    // xhttp.open("POST", "http://localhost:1300/data", true);
-    // xhttp.setRequestHeader("Content-Type", "application/json");
-    // xhttp.send(JSON.stringify(data));
-    // console.log(JSON.stringify(data));
   };
 
   handleInputChange = event => {
