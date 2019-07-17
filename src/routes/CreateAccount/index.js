@@ -1,4 +1,5 @@
 import { Component } from "preact";
+import axios from "axios";
 import Style from "./style.css";
 
 class CreateAccount extends Component {
@@ -17,11 +18,20 @@ class CreateAccount extends Component {
     event.preventDefault();
     const data = this.state;
     console.log(data);
-    const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://localhost:1300/data", true);
-    xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.send(JSON.stringify(data));
-    console.log(JSON.stringify(data));
+    axios({
+      method: "post",
+      url: "http://localhost:1300/data",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      data: JSON.stringify(data)
+    });
+
+    // const xhttp = new XMLHttpRequest();
+    // xhttp.open("POST", "http://localhost:1300/data", true);
+    // xhttp.setRequestHeader("Content-Type", "application/json");
+    // xhttp.send(JSON.stringify(data));
+    // console.log(JSON.stringify(data));
   };
 
   handleInputChange = event => {
@@ -104,11 +114,11 @@ class CreateAccount extends Component {
               Remember me{" "}
             </label>
             <div className="cearfix">
-              <button type="button" className={Style.signupbtn}>
-                <a href="/" style="color:white">
-                  Sign Up
-                </a>
-              </button>
+              <input
+                value="Sign Up"
+                type="submit"
+                className={Style.signupbtn}
+              />
               <button type="button" className={Style.cancelbtn}>
                 <a href="/login" style="color: white">
                   Already have an account?
