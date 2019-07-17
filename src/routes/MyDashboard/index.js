@@ -1,8 +1,71 @@
 import { Component } from "preact";
 import style from "./style.css";
 import { Sidebar } from "../../components/sidebar";
+import {
+  profileImage,
+  skills,
+  skill,
+  nameFirst,
+  nameLast
+} from "../../parse/functions";
 
 export default class MyDashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      profilePic: "",
+      skill: "",
+      skills: "",
+      action: "",
+      nameFirst: "",
+      nameLast: ""
+    };
+  }
+
+  addClick = () => this.setState({ action: "add" });
+  deleteClick = () => this.setState({ action: "delete" });
+  clearForm = () => document.getElementById("skillsForm").reset();
+
+  handleSubmit = event => {
+    event.preventDefault();
+    skill(this.state.action, this.state.skill);
+
+    // This is the problem
+    skills().then(x => {
+      let list = [];
+      x.map(item => list.push(item.attributes.name + " "));
+      this.setState({ skills: list });
+      console.log(list);
+    });
+
+    this.clearForm();
+  };
+
+  handleInputChange = event => {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  componentDidMount() {
+    profileImage(window.localStorage.objectId).then(image => {
+      this.setState({ profilePic: image[0].attributes.image });
+    });
+
+    skills().then(x => {
+      let list = [];
+      x.map(item => list.push(item.attributes.name + " "));
+      this.setState({ skills: list });
+      console.log(list);
+    });
+
+    nameFirst().then(data =>
+      this.setState({ nameFirst: data[0].attributes.firstName })
+    );
+    nameFirst().then(data =>
+      this.setState({ nameLast: data[0].attributes.lastName })
+    );
+  }
+
   render() {
     return (
       <div>
@@ -13,17 +76,40 @@ export default class MyDashboard extends Component {
         </div>
         <div className={style.profile}>
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL1KxvZupKbmEe6in-tGQIker6Rc3JhjCuxG-HJtpW3vhkttCP"
+            src={this.state.profilePic}
             alt="Unknown User"
             width="65"
             height="65"
           />
-          <div className={style.firstName}>First Name: John</div>
-          <div className={style.lastName}>Last Name: Doe</div>
-          <div className={style.startDate}>Start Date: 11/3/2018</div>
-          <div className={style.skills}>
-            Skills: JavaScript, Java, C++, Swift, Python, HTML, CSS
+          <div className={style.firstName}>
+            First Name: {this.state.nameFirst}
           </div>
+          <div className={style.lastName}>Last Name: {this.state.nameLast}</div>
+          <div className={style.startDate}>Start Date: 11/3/2018</div>
+          <div className={style.skills}>Skills: {this.state.skills}</div>
+          <div className={style.lastName}>Last Name: {this.state.nameLast}</div>
+          <div className={style.dateOfBirth}>Start Date: November 3, 2018</div>
+          <div className={style.skills}>Skills: {this.state.skills}</div>
+          <form onSubmit={this.handleSubmit} id="skillsForm">
+            <input
+              type="text"
+              name="skill"
+              required
+              onChange={this.handleInputChange}
+            />
+            <input
+              type="submit"
+              value="add"
+              name="add"
+              onClick={this.addClick}
+            />{" "}
+            <input
+              type="submit"
+              value="delete"
+              name="delete"
+              onClick={this.deleteClick}
+            />
+          </form>
         </div>
         {/*<div className={style.box}>Knowledge Area</div>*/}
         <div className={style.table}>
