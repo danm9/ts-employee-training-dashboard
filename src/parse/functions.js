@@ -6,7 +6,7 @@ const parseURL = "http://localhost:1337/parse/";
 const userPointer = {
   __type: "Pointer",
   className: "_User",
-  objectId: window.localStorage.objectId,
+  objectId: window.localStorage.objectId
 };
 
 export const profileImage = async objectId => {
@@ -41,12 +41,16 @@ export const skill = (action, name) => {
     headers: {
       "X-Parse-Application-id": "your_app_id",
       "X-Parse-REST-API-Key": "client_key",
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
     data: {
       skill: action,
       name: name,
-      user: userPointer,
-    },
+      user: userPointer
+    }
   });
 };
+
+export const getUserWithSkill = name => {};
+
+export const getUserwithId = objectId => {};
