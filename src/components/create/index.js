@@ -1,16 +1,12 @@
-import { Component } from "preact";
-import axios from "axios";
-import Style from "./style.css";
+import { h, Component } from "preact";
 
-class CreateAccount extends Component {
+class Create extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: "",
+      psw: "",
       username: "",
-      firstName: "",
-      lastName: ""
     };
   }
 
@@ -18,20 +14,17 @@ class CreateAccount extends Component {
     event.preventDefault();
     const data = this.state;
     console.log(data);
-    axios({
-      method: "post",
-      url: "http://localhost:1300/data",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      data: JSON.stringify(data)
-    });
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://localhost:1300/data", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify(data));
+    console.log(JSON.stringify(data));
   };
 
   handleInputChange = event => {
     event.preventDefault();
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -40,29 +33,10 @@ class CreateAccount extends Component {
     return (
       <div>
         <h1>Sign up here!</h1>
+        <p>Username is: {username}</p>
         <form onSubmit={this.handleSubmit} style={{ border: "1px solid #ccc" }}>
-          <div className={Style.container}>
+          <div className="container">
             <h1>Career Slayer </h1>
-            <label htmlFor="firstName">
-              <b>First Name </b>{" "}
-            </label>
-            <input
-              type="text"
-              placeholder="Enter First Name"
-              name="firstName"
-              required
-              onChange={this.handleInputChange}
-            />
-            <label htmlFor="lastName">
-              <b>Last Name </b>{" "}
-            </label>
-            <input
-              type="text"
-              placeholder="Enter Last Name"
-              name="lastName"
-              required
-              onChange={this.handleInputChange}
-            />
             <label for="email">
               <b>Email</b>
             </label>
@@ -89,7 +63,7 @@ class CreateAccount extends Component {
             <input
               type="password"
               placeholder="Enter Password"
-              name="password"
+              name="psw"
               required
               onChange={this.handleInputChange}
             />
@@ -108,16 +82,12 @@ class CreateAccount extends Component {
               Remember me{" "}
             </label>
             <div className="cearfix">
-              <input
-                value="Sign Up"
-                type="submit"
-                className={Style.signupbtn}
-              />
-              <button type="button" className={Style.cancelbtn}>
-                <a href="/login" style="color: white">
-                  Already have an account?
-                </a>
+              <button type="button" className="cancelbtn">
+                Cancel
               </button>
+              <input type="submit" className="signupbtn">
+                Sign Up
+              </input>
             </div>
           </div>
         </form>
@@ -126,4 +96,4 @@ class CreateAccount extends Component {
   }
 }
 
-export default CreateAccount;
+export default Create;

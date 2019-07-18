@@ -1,146 +1,194 @@
 import { Component } from "preact";
-import Style from "./style.css";
-import { route } from "preact-router";
+import style from "./style.css";
+import { Sidebar } from "../../components/sidebar";
+import {
+  profileImage,
+  skills,
+  skill,
+  nameFirst,
+  nameLast
+} from "../../parse/functions";
 
-export default class Create extends Component {
+export default class MyDashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      profilePic: "",
+      skill: "",
+      skills: "",
+      action: "",
+      nameFirst: "",
+      nameLast: ""
+    };
+  }
+
+  addClick = () => this.setState({ action: "add" });
+  deleteClick = () => this.setState({ action: "delete" });
+  clearForm = () => document.getElementById("skillsForm").reset();
+
+  handleSubmit = event => {
+    event.preventDefault();
+    skill(this.state.action, this.state.skill);
+
+    // This is the problem
+    skills().then(x => {
+      let list = [];
+      x.map(item => list.push(item.attributes.name + " "));
+      this.setState({ skills: list });
+      console.log(list);
+    });
+
+    this.clearForm();
+  };
+
+  handleInputChange = event => {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  componentDidMount() {
+    profileImage(window.localStorage.objectId).then(image => {
+      this.setState({ profilePic: image[0].attributes.image });
+    });
+
+    skills().then(x => {
+      let list = [];
+      x.map(item => list.push(item.attributes.name + " "));
+      this.setState({ skills: list });
+      console.log(list);
+    });
+
+    nameFirst().then(data =>
+      this.setState({ nameFirst: data[0].attributes.firstName })
+    );
+    nameFirst().then(data =>
+      this.setState({ nameLast: data[0].attributes.lastName })
+    );
+  }
+
   render() {
     return (
       <div>
-        <div classNameName={Style.Componentcontainer} />
-        <div className="main">
+        <Sidebar />
+        <div className={style.Componentcontainer} />
+        <div className={style.main}>
           <p>Career Slayer</p>
         </div>
-        <div className="profile">
-          <div className="firstName">
-            <p>First Name: John</p>
+        <div className={style.profile}>
+          <img
+            src={this.state.profilePic}
+            alt="Unknown User"
+            width="65"
+            height="65"
+          />
+          <div className={style.firstName}>
+            First Name: {this.state.nameFirst}
           </div>
-          <div className="lastName">
-            <p>Last Name: Doe</p>
-          </div>
-          <div className="dateOfBirth">
-            <p>Start Date: November 3, 2018</p>
-          </div>
-          <div className="skills">
-            <p>Skills: JavaScript, Java, C++, Swift, Python, HTML, CSS</p>
-          </div>
+          <div className={style.lastName}>Last Name: {this.state.nameLast}</div>
+          <div className={style.startDate}>Start Date: 11/3/2018</div>
+          <div className={style.skills}>Skills: {this.state.skills}</div>
+          {/*<div className={style.lastName}>Last Name: {this.state.nameLast}</div>
+          <div className={style.dateOfBirth}>Start Date: November 3, 2018</div>
+    <div className={style.skills}>Skills: {this.state.skills}</div>*/}
+          <form onSubmit={this.handleSubmit} id="skillsForm">
+            <input
+              type="text"
+              name="skill"
+              required
+              onChange={this.handleInputChange}
+            />
+            <input
+              type="submit"
+              value="add"
+              name="add"
+              onClick={this.addClick}
+            />{" "}
+            <input
+              type="submit"
+              value="delete"
+              name="delete"
+              onClick={this.deleteClick}
+            />
+          </form>
         </div>
-        <div className="box">
-          <p>Knowledge Area</p>
+        {/*<div className={style.box}>Knowledge Area</div>*/}
+        <div className={style.table}>
+          <div className={style.knowledgeArea}>Knowledge Area</div>
+          <div className={style.capabilityLevel}>Capability Level</div>
+          <div className={style.configurationManagement}>
+            Configuration Management
+          </div>
+          <div className={style.construction}>Construction</div>
+          <div className={style.design}>Design</div>
+          <div className={style.foundations}>Foundations</div>
+          <div className={style.maintenance}>Maintenance</div>
+          <div className={style.modelsAndMethods}>Models and Methods</div>
+          <div className={style.process}>Process</div>
+          <div className={style.management}>Management</div>
+          <div className={style.quality}>Quality</div>
+          <div className={style.requirements}>Requirements</div>
+          <div className={style.testing}>Testing</div>
+          <div className={style.introductory}>Introductory</div>
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.competence}>Competence</div>
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.leadership}>Leadership</div>
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.mastery}>Mastery</div>
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
+          <div className={style.blank} />
         </div>
-        <div className="table">
-          <div className="capabilityLevel">
-            <p>Capability Level</p>
+        {/*<div className={style.grid2}>
+          <div className={style.category}>Category</div>
+          <div className={style.activity}>Activity</div>
+          <div className={style.reading}>Reading</div>
+          <div className={style.blank1} />
+          <div className={style.training}>Training</div>
+          <div className={style.blank2} />
+          <div className={style.professionalExperience}>
+            Professional Experience
           </div>
-          <div className="configurationManagement">
-            <p>Configuration Management</p>
-          </div>
-          <div className="construction">
-            <p>Construction</p>
-          </div>
-          <div className="design">
-            <p>Design</p>
-          </div>
-          <div className="foundations">
-            <p>Foundations</p>
-          </div>
-          <div className="maintenance">
-            <p>Maintenance</p>
-          </div>
-          <div className="modelsAndMethods">
-            <p>Models and Methods</p>
-          </div>
-          <div className="process">
-            <p>Process</p>
-          </div>
-          <div className="management">
-            <p>Management</p>
-          </div>
-          <div className="quality">
-            <p>Quality</p>
-          </div>
-          <div className="requirements">
-            <p>Requirements</p>
-          </div>
-          <div className="testing">
-            <p>Testing</p>
-          </div>
-          <div className="introductory">
-            <p>Introductory</p>
-          </div>
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="competence">
-            <p>Competence</p>
-          </div>
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="leadership">
-            <p>Leadership</p>
-          </div>
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="mastery">
-            <p>Mastery</p>
-          </div>
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-          <div className="blank" />
-        </div>
-        <div className="grid2">
-          <div className="category">
-            <p>Category</p>
-          </div>
-          <div className="activity">
-            <p>Activity</p>
-          </div>
-          <div className="reading">
-            <p>Reading</p>
-          </div>
-          <div className="blank1" />
-          <div className="training">
-            <p>Training</p>
-          </div>
-          <div className="blank2" />
-          <div className="professionalExperience">
-            <p>Professional Experience</p>
-          </div>
-          <div className="blank3" />
-        </div>
+          <div className={style.blank3} />
+    </div>*/}
       </div>
     );
   }

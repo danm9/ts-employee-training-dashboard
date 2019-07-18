@@ -12,14 +12,20 @@ input[type="password"]:focus {
   background-color: #ddd;
   outline: none;
 }
+form {
+  height: 470px;
+  margin-right: 200px;
+  min-width: 500px;
+}
+
 hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
-button {
+.signupbtn {
   background-color: #4caf50;
   color: white;
-  padding: 14px 20pc;
+  padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
@@ -30,12 +36,16 @@ button:hover {
 }
 .cancelbtn {
   padding: 14px 20px;
-  background-color: #f44336;
+  background-color: #4caf50;
+  margin-left: 20px;
 }
-.cancelbtn,
-signupbtn {
+.cancelbtn {
   float: left;
-  width: 50%;
+  width: 48%;
+}
+.signupbtn {
+  float: right;
+  width: 48%;
 }
 .container {
   padding: 16px;
