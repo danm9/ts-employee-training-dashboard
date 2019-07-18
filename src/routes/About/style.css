@@ -31,6 +31,10 @@ body {
   font-size: 33px;
 }
 
+.careerLadder {
+  border-radius: 100%;
+}
+
 .capabilityLevels {
   display: grid;
   width: auto;

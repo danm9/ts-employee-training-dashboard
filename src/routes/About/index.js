@@ -48,7 +48,7 @@ export default class About extends Component {
             </li>
           </ul>
         </div>
-        <div className={style.careerladder}>
+        <div className={style.careerLadder}>
           <img
             src="/assets/CareerLadder.png"
             alt="TaxSlayer"

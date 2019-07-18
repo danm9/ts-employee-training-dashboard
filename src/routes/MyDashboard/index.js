@@ -2,9 +2,7 @@ import { Component } from "preact";
 import style from "./style.css";
 import "./style";
 import { Sidebar } from "../../components/sidebar";
-<<<<<<< HEAD
 import Tagger from "../../components/tagger";
-=======
 import {
   profileImage,
   skills,
@@ -13,7 +11,6 @@ import {
   nameLast
 } from "../../parse/functions";
 
->>>>>>> 46c1337cd88ed611d0d4dea74c0b1fc40801625c
 export default class MyDashboard extends Component {
   constructor(props) {
     super(props);
