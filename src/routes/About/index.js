@@ -48,6 +48,14 @@ export default class About extends Component {
             </li>
           </ul>
         </div>
+        <div className={style.careerladder}>
+          <img
+            src="/assets/CareerLadder.png"
+            alt="TaxSlayer"
+            width="750"
+            height="450"
+          />
+        </div>
         <div className={style.capabilityLevels}>
           <div className={style.introductory}>
             <img

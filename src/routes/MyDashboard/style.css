@@ -98,7 +98,7 @@ body {
   padding-left: 30px;
   padding-right: 80px;
   padding-top: 20px;
-  grid-template-columns: 80px repeat(3, 1fr);
+  grid-template-columns: 80px repeat(3, 260px);
   grid-template-rows: repeat(2, 50px);
   border: #333740 solid 2px;
   margin-right: 65px;
