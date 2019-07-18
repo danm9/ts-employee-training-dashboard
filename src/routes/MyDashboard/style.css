@@ -237,3 +237,11 @@ img {
 .blank3 {
   border-right: 2px #333740 solid;
 }
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.home {
+  padding: 56px 20px;
+  min-height: 100%;
+  width: 100%;
+}

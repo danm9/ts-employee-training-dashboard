@@ -1,7 +1,8 @@
 import { Component } from "preact";
 import style from "./style.css";
+import "./style";
 import { Sidebar } from "../../components/sidebar";
-
+import Tagger from "../../components/tagger";
 export default class MyDashboard extends Component {
   render() {
     return (
@@ -91,6 +92,15 @@ export default class MyDashboard extends Component {
           <div className={style.blank} />
           <div className={style.blank} />
         </div>
+
+        <div class={style.home}>
+          <Tagger
+            activeTagsDidChange={tags => {
+              console.log(tags);
+            }}
+          />
+        </div>
+
         {/*<div className={style.grid2}>
           <div className={style.category}>Category</div>
           <div className={style.activity}>Activity</div>
