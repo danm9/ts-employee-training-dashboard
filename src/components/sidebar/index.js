@@ -11,7 +11,7 @@ import { route } from "preact-router";
 const handleSideBarOnClick = id => {
   switch (id) {
     case RouteIDs.DASHBOARD:
-      route("/MyDashboard", true);
+      route("/", true);
       break;
     case RouteIDs.LIBRARY:
       route("/Library", true);
@@ -65,7 +65,7 @@ export const Sidebar = props => {
     "My Dashboard",
     "Activities",
     "Course Library",
-    "Personal Library",
+    /*"Personal Library",*/
     "About",
     "Sign Out"
   ];
@@ -74,7 +74,7 @@ export const Sidebar = props => {
     RouteIDs.DASHBOARD,
     RouteIDs.ACTIVITIES,
     RouteIDs.LIBRARY,
-    RouteIDs.PERSONALLIBRARY,
+    /*RouteIDs.PERSONALLIBRARY,*/
     RouteIDs.ABOUT,
     RouteIDs.SIGNOUT
   ];
@@ -89,7 +89,7 @@ export const RouteIDs = {
   DASHBOARD: "my-dashboard",
   ACTIVITIES: "Activities",
   LIBRARY: "Library",
-  PERSONALLIBRARY: "Personal Library",
+  /*PERSONALLIBRARY: "Personal Library",*/
   ABOUT: "About",
   SIGNOUT: "Sign Out"
 };

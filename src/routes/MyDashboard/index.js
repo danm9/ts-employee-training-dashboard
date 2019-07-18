@@ -92,9 +92,9 @@ export default class MyDashboard extends Component {
           <div className={style.lastName}>Last Name: {this.state.nameLast}</div>
           <div className={style.startDate}>Start Date: 11/3/2018</div>
           <div className={style.skills}>Skills: {this.state.skills}</div>
-          <div className={style.lastName}>Last Name: {this.state.nameLast}</div>
+          {/*<div className={style.lastName}>Last Name: {this.state.nameLast}</div>
           <div className={style.dateOfBirth}>Start Date: November 3, 2018</div>
-          <div className={style.skills}>Skills: {this.state.skills}</div>
+    <div className={style.skills}>Skills: {this.state.skills}</div>*/}
           <form onSubmit={this.handleSubmit} id="skillsForm">
             <input
               type="text"
