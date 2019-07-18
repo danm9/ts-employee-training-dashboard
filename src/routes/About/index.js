@@ -50,10 +50,11 @@ export default class About extends Component {
         </div>
         <div className={style.careerLadder}>
           <img
-            src="/assets/CareerLadder.png"
-            alt="TaxSlayer"
-            width="750"
-            height="450"
+            src="/assets/level1.png"
+            alt="Career Ladder"
+            width="650"
+            height="350"
+            style="border-radius: 0%;"
           />
         </div>
         <div className={style.capabilityLevels}>
