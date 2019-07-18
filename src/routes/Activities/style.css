@@ -1,7 +1,6 @@
 /* Float four columns side by side */
 .column {
   float: left;
-  width: 25%;
   padding: 0 10px;
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -9,9 +8,9 @@
   margin-top: 20px;
 }
 
-/* Remove extra left and right margins, due to padding in columns */
+/* Remove extra left and right margins, due to padding in columns 
 .row {
-}
+}*/
 
 /* Clear floats after the columns */
 .row:after {
