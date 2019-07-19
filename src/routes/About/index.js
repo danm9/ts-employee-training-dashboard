@@ -48,15 +48,7 @@ export default class About extends Component {
             </li>
           </ul>
         </div>
-        <div className={style.careerLadder}>
-          <img
-            src="/assets/level1.png"
-            alt="Career Ladder"
-            width="650"
-            height="350"
-            style="border-radius: 0%;"
-          />
-        </div>
+
         <div className={style.capabilityLevels}>
           <div className={style.introductory}>
             <img
@@ -125,6 +117,47 @@ export default class About extends Component {
             expertise in the area. Industry-wide, only a handful of
             professionals will attain this level within each KA.
           </div>
+        </div>
+        <div className={style.careerLadder}>
+          Level 1- Software Developer
+          <br />
+          <img
+            src="/assets/Picture1.png"
+            alt="Career Ladder"
+            width="750"
+            height="350"
+            style="border-radius: 0%; margin-bottom: 20px;"
+          />
+          <br />
+          Level 2- Senior Software Developer
+          <br />
+          <img
+            src="/assets/Picture2.png"
+            alt="Career Ladder"
+            width="750"
+            height="350"
+            style="border-radius: 0%; margin-bottom: 20px;"
+          />
+          <br />
+          Level 3- Principal Software Developer
+          <br />
+          <img
+            src="/assets/Picture3.png"
+            alt="Career Ladder"
+            width="750"
+            height="350"
+            style="border-radius: 0%; margin-bottom: 20px;"
+          />
+          <br />
+          Level 3- Software Technical Manager
+          <br />
+          <img
+            src="/assets/Picture4.png"
+            alt="Career Ladder"
+            width="750"
+            height="350"
+            style="border-radius: 0%; margin-bottom: 20px;"
+          />
         </div>
         <div className={style.knowledgeAreas}>
           <div className={style.KA}>Knowledge Area</div>
