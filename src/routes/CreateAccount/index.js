@@ -26,6 +26,9 @@ class CreateAccount extends Component {
       },
       data: JSON.stringify(data)
     });
+    sessionStorage.clear();
+    localStorage.clear();
+    window.location.replace("/");
   };
 
   handleInputChange = event => {
