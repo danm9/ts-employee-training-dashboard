@@ -20,8 +20,11 @@ class CreateAccount extends Component {
     console.log(data);
     axios({
       method: "post",
-      url: "http://localhost:1300/data",
+      url: "http://localhost:1337/parse/users",
       headers: {
+        "X-Parse-Application-Id": "your_app_id",
+        "X-Parse-REST-API-Key": "client_key",
+        "X-Parse-Revocable-Session": "1",
         "Content-Type": "application/json"
       },
       data: JSON.stringify(data)
