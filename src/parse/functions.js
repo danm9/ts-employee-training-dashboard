@@ -9,6 +9,25 @@ const userPointer = {
   objectId: window.localStorage.objectId
 };
 
+// Parse does authenticating on it's own.
+export const authenticating = async () => {
+  const response = await axios({
+    url: "http://localhost:1337/parse/sessions/me",
+    method: "get",
+    headers: {
+      "X-Parse-Application-Id": "your_app_id",
+      "X-Parse-REST-API-Key": "client_key",
+      "X-Parse-Session-Token": window.localStorage.session
+    },
+    responseType: "json"
+  });
+  console.log(response.data.user.objectId);
+  if (response.data.user.objectId == window.localStorage.objectId) {
+    return true;
+  }
+  return false;
+};
+
 export const profileImage = async objectId => {
   const query = new Parse.Query(Parse.User);
   query.equalTo("objectId", objectId);

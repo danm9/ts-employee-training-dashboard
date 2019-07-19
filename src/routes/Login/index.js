@@ -1,5 +1,6 @@
 import { h, Component } from "preact";
 import axios from "axios";
+import { authenticating } from "../../parse/functions";
 
 class Login extends Component {
   constructor(props) {
@@ -25,8 +26,14 @@ class Login extends Component {
     })
       .then(response => {
         console.log(response.data);
+        localStorage.clear();
+        sessionStorage.clear();
+
         localStorage.setItem("session", response.data[0]);
         localStorage.setItem("objectId", response.data[1]);
+        if (window.localStorage.session && window.localStorage.objectId) {
+          sessionStorage.setItem("auth", "true");
+        }
       })
       .then(() => window.location.replace("/"));
   };
