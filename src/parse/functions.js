@@ -9,14 +9,17 @@ const userPointer = {
   objectId: window.localStorage.objectId
 };
 
+const appId= "your_app_id"
+const cKey = "client_key"
+
 // Parse does authenticating on it's own.
 export const authenticating = async () => {
   const response = await axios({
     url: "http://localhost:1337/parse/sessions/me",
     method: "get",
     headers: {
-      "X-Parse-Application-Id": "your_app_id",
-      "X-Parse-REST-API-Key": "client_key",
+      "X-Parse-Application-Id": appId,
+      "X-Parse-REST-API-Key": cKey,
       "X-Parse-Session-Token": window.localStorage.session
     },
     responseType: "json"
@@ -28,11 +31,11 @@ export const authenticating = async () => {
   return false;
 };
 
-export const profileImage = async objectId => {
-  const query = new Parse.Query(Parse.User);
-  query.equalTo("objectId", objectId);
-  return query.find();
-};
+
+export const getUserWithSkill = name => {};
+
+export const getUserwithId = objectId => {};
+
 
 export const nameFirst = async () => {
   const query = new Parse.Query(Parse.User);
@@ -43,6 +46,27 @@ export const nameFirst = async () => {
 export const nameLast = async () => {
   const query = new Parse.Query(Parse.User);
   query.equalTo("objectId", window.localStorage.objectId);
+  return query.find();
+};
+
+export const passwordReset = email => {
+axios({
+  method: "post",
+  url: parseURL + "requestPasswordReset",
+  headers: {
+    "X-Parse-Application-id": appId,
+    "X-Parse-REST-API-Key": cKey,
+    "Content-Type": "application/json"
+  },
+  data: {
+    "email": email
+  }
+})
+} 
+
+export const profileImage = async objectId => {
+  const query = new Parse.Query(Parse.User);
+  query.equalTo("objectId", objectId);
   return query.find();
 };
 
@@ -58,8 +82,8 @@ export const skill = (action, name) => {
     method: "post",
     url: parseURL + "functions/skills",
     headers: {
-      "X-Parse-Application-id": "your_app_id",
-      "X-Parse-REST-API-Key": "client_key",
+      "X-Parse-Application-id": appId,
+      "X-Parse-REST-API-Key": cKey,
       "Content-Type": "application/json"
     },
     data: {
@@ -69,7 +93,3 @@ export const skill = (action, name) => {
     }
   });
 };
-
-export const getUserWithSkill = name => {};
-
-export const getUserwithId = objectId => {};
