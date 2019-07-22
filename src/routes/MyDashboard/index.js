@@ -8,7 +8,8 @@ import {
   skills,
   skill,
   nameFirst,
-  nameLast
+  nameLast,
+  getUsersWithSkill
 } from "../../parse/functions";
 
 export default class MyDashboard extends Component {
@@ -66,6 +67,8 @@ export default class MyDashboard extends Component {
     nameFirst().then(data =>
       this.setState({ nameLast: data[0].attributes.lastName })
     );
+
+    getUsersWithSkill("python").then(data => console.log(data));
   }
 
   render() {
@@ -118,7 +121,7 @@ export default class MyDashboard extends Component {
           <div className={style.knowledgeArea}>Knowledge Area</div>
           <div className={style.capabilityLevel}>Capability Level</div>
           <div className={style.configurationManagement}>
-            Configuration Management
+            Configuration Management{" "}
           </div>
           <div className={style.construction}>Construction</div>
           <div className={style.design}>Design</div>

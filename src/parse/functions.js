@@ -9,14 +9,17 @@ const userPointer = {
   objectId: window.localStorage.objectId
 };
 
+const appId = "your_app_id";
+const cKey = "client_key";
+
 // Parse does authenticating on it's own.
 export const authenticating = async () => {
   const response = await axios({
     url: "http://localhost:1337/parse/sessions/me",
     method: "get",
     headers: {
-      "X-Parse-Application-Id": "your_app_id",
-      "X-Parse-REST-API-Key": "client_key",
+      "X-Parse-Application-Id": appId,
+      "X-Parse-REST-API-Key": cKey,
       "X-Parse-Session-Token": window.localStorage.session
     },
     responseType: "json"
@@ -58,8 +61,8 @@ export const skill = (action, name) => {
     method: "post",
     url: parseURL + "functions/skills",
     headers: {
-      "X-Parse-Application-id": "your_app_id",
-      "X-Parse-REST-API-Key": "client_key",
+      "X-Parse-Application-id": appId,
+      "X-Parse-REST-API-Key": cKey,
       "Content-Type": "application/json"
     },
     data: {
@@ -70,6 +73,11 @@ export const skill = (action, name) => {
   });
 };
 
-export const getUserWithSkill = name => {};
+export const getUsersWithSkill = name => {
+  const skills = Parse.Object.extend("Skills");
+  const query = new Parse.Query(skills);
+  query.equalTo("name", name);
+  return query.find();
+};
 
 export const getUserwithId = objectId => {};
