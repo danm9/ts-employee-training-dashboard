@@ -1,4 +1,5 @@
 import { h, Component } from "preact";
+import Style from "./style.css";
 import axios from "axios";
 import { authenticating } from "../../parse/functions";
 
@@ -46,16 +47,17 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h1>Career Slayer</h1>
-        <h5>Welcome, please sign in</h5>
+        <h1 style="text-align:center;">Career Slayer</h1>
+        <h4 style="text-align:center;">Welcome, please sign in</h4>
         <form onSubmit={this.handleSubmit}>
-          <div className="imgcontainer">
+          {/*<div className={Style.imgcontainer}>
             <img src="img_avatar2.png" alt="Avatar" className="avatar" />
-          </div>
-          <div className="container">
+          </div>*/}
+          <div className={Style.container}>
             <label htmlFor="uname">
               <b>Username</b>
             </label>
+            <br />
             <input
               type="text"
               placeholder="Enter Username"
@@ -63,9 +65,11 @@ class Login extends Component {
               required
               onChange={this.handleInputChange}
             />
+            <br />
             <label htmlFor="psw">
               <b>Password</b>
             </label>
+            <br />
             <input
               type="password"
               placeholder="Enter Password"
@@ -73,16 +77,20 @@ class Login extends Component {
               required
               onChange={this.handleInputChange}
             />
-            <input type="submit" />
+            <br />
+            <input
+              type="submit"
+              style="background-color: #4caf50; color: white; padding: 14px 20px; margin: 8px 0; width: 100%;"
+            />
             <label>
               <input type="checkbox" defaultChecked="checked" name="remember" />{" "}
               Remember me
             </label>
           </div>
-          <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
-            <button type="button" className="cancelbtn">
+          <div className={Style.container}>
+            {/*<button type="button" className="cancelbtn">
               Cancel
-            </button>
+        </button>*/}
             <span className="psw">
               Forgot <a href="#">password?</a>
             </span>

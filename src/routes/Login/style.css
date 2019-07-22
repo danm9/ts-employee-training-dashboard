@@ -1,5 +1,6 @@
 form {
-  border: 3px solid #f1f1f1;
+  /*border: 3px solid #f1f1f1;*/
+  margin-left: 200px;
 }
 
 input[type="text"],
@@ -12,7 +13,7 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
-button {
+/*button {
   background-color: #4caf50;
   color: white;
   padding: 14px 20px;
@@ -20,7 +21,7 @@ button {
   border: none;
   cursor: pointer;
   width: 100%;
-}
+}*/
 
 button:hover {
   opacity: 0.8;
@@ -32,10 +33,11 @@ button:hover {
   } */
 
 .container {
-  margin-top: 100px;
+  margin-top: 0px;
   min-width: 500px;
   margin-right: 200px;
-  justify-content: center;
+  align-self: center;
+  background-color: #f1f1f1;
 }
 .createbtn {
   width: 35%;
