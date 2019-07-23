@@ -49,7 +49,7 @@ export default class MyDashboard extends Component {
   };
 
   componentDidMount() {
-    profileImage(window.localStorage.objectId).then(image => {
+    profileImage(window.sessionStorage.objectId).then(image => {
       this.setState({ profilePic: image[0].attributes.image });
     });
 

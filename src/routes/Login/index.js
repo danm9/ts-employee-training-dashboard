@@ -27,12 +27,12 @@ class Login extends Component {
     })
       .then(response => {
         console.log(response.data);
-        localStorage.clear();
+        sessionStorage.clear();
         sessionStorage.clear();
 
-        localStorage.setItem("session", response.data[0]);
-        localStorage.setItem("objectId", response.data[1]);
-        if (window.localStorage.session && window.localStorage.objectId) {
+        sessionStorage.setItem("session", response.data[0]);
+        sessionStorage.setItem("objectId", response.data[1]);
+        if (window.sessionStorage.session && window.sessionStorage.objectId) {
           sessionStorage.setItem("auth", "true");
         }
       })
