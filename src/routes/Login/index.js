@@ -91,8 +91,11 @@ class Login extends Component {
             {/*<button type="button" className="cancelbtn">
               Cancel
         </button>*/}
-            <span className="psw">
-              Forgot <a href="#">password?</a>
+            <span className={Style.forgot}>
+              <a href="/forgot">Forgot password?</a>
+            </span>
+            <span className={Style.create}>
+              <a href="/createaccount">Don't already have an account?</a>
             </span>
           </div>
         </form>

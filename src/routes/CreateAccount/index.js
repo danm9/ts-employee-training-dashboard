@@ -113,7 +113,7 @@ class CreateAccount extends Component {
               <input type="checkbox" defaultChecked="checked" name="remember" />
               Remember me{" "}
             </label>
-            <div className="cearfix">
+            <div className={Style.cearfix}>
               <input
                 value="Sign Up"
                 type="submit"
