@@ -16,6 +16,7 @@ export default class Forgot extends Component {
   handleSubmit = event => {
     event.preventDefault();
     passwordReset(this.state.email);
+    document.getElementById("pwdForm").reset();
   };
 
   render() {
@@ -23,7 +24,7 @@ export default class Forgot extends Component {
       <div>
         <div className={Style.container}>
           <div className={Style.main}>Forgot Password?</div>
-          <a onSubmit={this.handleSubmit} id="pwdForm">
+          <form onSubmit={this.handleSubmit} id="pwdForm">
             {" "}
             <label for="email">
               <b>Email Address</b>
@@ -35,13 +36,13 @@ export default class Forgot extends Component {
               required
               onChange={this.handleInputChange}
             />
-            <input type="submit">Reset Password</input>
+            <input type="submit" value="Reset Password" />
             <button type="button" className={Style.cancelbtn}>
               <a href="/login" style="color: white">
                 Cancel
               </a>
             </button>
-          </a>
+          </form>
         </div>
       </div>
     );
