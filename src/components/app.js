@@ -2,7 +2,7 @@ import { Router, Route, route } from "preact-router";
 import { h, Component } from "preact";
 import axios from "axios";
 import Parse from "parse";
-import { authSession } from "../parse/functions";
+// import { authSession } from "../parse/functions";
 
 // Code-splitting is automated for routes
 import { Sidebar, RouteIDs } from "./sidebar";
@@ -34,11 +34,11 @@ export default class App extends Component {
    *	@param {string} event.url	The newly routed URL
    */
   handleRoute = e => {
-    this.setState({ authetication: sessionStorage.auth == "true" });
+    // this.setState({ authetication: sessionStorage.auth == "true" });
     this.currentUrl = e.url;
   };
 
-  componentWillMount() {
+  /*  componentDidMount() {
     if (sessionStorage.session) {
       authSession().then(response => {
         console.log(response.data.user.objectId);
@@ -48,7 +48,7 @@ export default class App extends Component {
         });
       });
     }
-  }
+  } */
 
   render() {
     return (
