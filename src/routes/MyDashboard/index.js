@@ -32,15 +32,17 @@ export default class MyDashboard extends Component {
     event.preventDefault();
     skill(this.state.action, this.state.skill);
 
-    // This is the problem
-    skills().then(x => {
-      let list = [];
-      x.map(item => list.push(item.attributes.name + " "));
-      this.setState({ skills: list });
-      // console.log(list);
-    });
-
     this.clearForm();
+
+    setTimeout(() => {
+      // This is the problem
+      skills().then(x => {
+        let list = [];
+        x.map(item => list.push(item.attributes.name + " "));
+        this.setState({ skills: list });
+        // console.log(list);
+      });
+    }, 1000);
   };
 
   handleInputChange = event => {
