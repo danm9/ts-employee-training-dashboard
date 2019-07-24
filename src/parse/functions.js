@@ -28,7 +28,24 @@ export const authenticating = async () => {
   if (response.data.user.objectId == window.sessionStorage.objectId) {
     return true;
   }
+
+  sessionStorage.clear();
   return false;
+};
+
+export const authSession = async () => {
+  if (sessionStorage.session) {
+    return axios({
+      url: parseURL + "sessions/me",
+      method: "get",
+      headers: {
+        "X-Parse-Application-Id": appId,
+        "X-Parse-REST-API-Key": cKey,
+        "X-Parse-Session-Token": window.sessionStorage.session
+      },
+      responseType: "json"
+    });
+  }
 };
 
 export const getUserWithSkill = name => {};
@@ -66,6 +83,20 @@ export const profileImage = async objectId => {
   const query = new Parse.Query(Parse.User);
   query.equalTo("objectId", objectId);
   return query.find();
+};
+
+export const sessionTokenMe = async sessionToken => {
+  const query = new Parse.Query(Parse.Session);
+  query.equalTo("sessionToken", sessionToken);
+  return query.find({ useMasterKey: true });
+};
+
+export const InitialSessionValue = () => {
+  if (sessionStorage.auth == "true") {
+    return true;
+  }
+
+  return false;
 };
 
 export const skills = () => {

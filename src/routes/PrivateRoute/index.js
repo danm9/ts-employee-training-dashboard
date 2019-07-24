@@ -6,10 +6,11 @@ class PrivateRoute extends Component {
     super(props);
     this.state = {};
   }
+
   render() {
     const { component: Component, ...rest } = this.props;
 
-    if (this.props.auth == "true") {
+    if (this.props.auth == true) {
       return <Component {...location} {...rest} />;
     }
     // If the user is not logged in, redirect to the login page.
