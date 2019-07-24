@@ -37,7 +37,7 @@ export default class MyDashboard extends Component {
       let list = [];
       x.map(item => list.push(item.attributes.name + " "));
       this.setState({ skills: list });
-      console.log(list);
+      // console.log(list);
     });
 
     this.clearForm();
@@ -57,7 +57,7 @@ export default class MyDashboard extends Component {
       let list = [];
       x.map(item => list.push(item.attributes.name + " "));
       this.setState({ skills: list });
-      console.log(list);
+      // console.log(list);
     });
 
     nameFirst().then(data =>
