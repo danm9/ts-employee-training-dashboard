@@ -42,7 +42,7 @@ export default class MyDashboard extends Component {
         this.setState({ skills: list });
         // console.log(list);
       });
-    }, 1000);
+    }, 100);
   };
 
   handleInputChange = event => {
