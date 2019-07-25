@@ -38,18 +38,6 @@ export default class App extends Component {
     this.currentUrl = e.url;
   };
 
-  /*  componentDidMount() {
-    if (sessionStorage.session) {
-      authSession().then(response => {
-        console.log(response.data.user.objectId);
-
-        this.setState({
-          authetication: response.data.user.objectId == sessionStorage.objectId
-        });
-      });
-    }
-  } */
-
   render() {
     return (
       <div id="app">
