@@ -138,3 +138,7 @@ span.psw {
   float: right;
   padding-top: 16px;
 }
+
+#sidebar-container {
+  display: none;
+}

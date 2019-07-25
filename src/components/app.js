@@ -53,9 +53,9 @@ export default class App extends Component {
   render() {
     return (
       <div id="app">
-        <div id="sidebar-container">
+        {/*<div id="sidebar-container">
           <Sidebar />
-        </div>
+        </div>*/}
         <div className={"AppContainer"}>
           <Router onChange={this.handleRoute}>
             <PrivateRoute
