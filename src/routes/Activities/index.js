@@ -2,6 +2,8 @@ import { Component } from "preact";
 import style from "./style.css";
 import { Sidebar } from "../../components/sidebar";
 import ActivityCard from "../../components/activitycard";
+import React from "react";
+
 const Card = props => {
   const { name, description, commentCount, position } = props;
   return (

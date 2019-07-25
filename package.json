@@ -31,14 +31,17 @@
     "preact-render-spy": "^1.2.1"
   },
   "dependencies": {
+    "add": "^2.0.6",
     "axios": "^0.19.0",
-    "parse": "^2.4.0",
+    "parse": "^2.5.1",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
     "preact-router": "^2.5.7",
+    "react-dnd": "^9.3.2",
     "react-tag-input": "^6.4.0",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.87.1"
+    "semantic-ui-react": "^0.87.1",
+    "yarn": "^1.17.3"
   },
   "jest": {
     "verbose": true,
