@@ -115,7 +115,7 @@ export default class MyDashboard extends Component {
             />
           </form>
         </div>
-        {/*<div className={style.box}>Knowledge Area</div>*/}
+
         <div className={style.table}>
           <div className={style.knowledgeArea}>Knowledge Area</div>
           <div className={style.capabilityLevel}>Capability Level</div>
