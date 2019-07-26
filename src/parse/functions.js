@@ -48,6 +48,17 @@ export const authSession = async () => {
   }
 };
 
+export const getCourseLibrary = async () => {
+  return axios({
+    method: "get",
+    url: parseURL + "classes/Library",
+    headers: {
+      "X-Parse-Application-id": appId,
+      "X-Parse-REST-API-Key": cKey
+    }
+  });
+};
+
 export const getUserWithSkill = name => {};
 
 export const getUserwithId = objectId => {};
