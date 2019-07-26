@@ -128,10 +128,12 @@ button:hover {
 
 .container {
   margin-top: 100px;
-  margin-right: 200px;
+  min-width: 500px;
   justify-content: center;
-  width: 600px;
+  width: auto;
   font-family: "Roboto", sans-serif;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 span.psw {
