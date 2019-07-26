@@ -20,12 +20,18 @@ class CreateAccount extends Component {
     console.log(data);
     axios({
       method: "post",
-      url: "http://localhost:1300/data",
+      url: "http://localhost:1337/parse/users",
       headers: {
+        "X-Parse-Application-Id": "your_app_id",
+        "X-Parse-REST-API-Key": "client_key",
+        "X-Parse-Revocable-Session": "1",
         "Content-Type": "application/json"
       },
       data: JSON.stringify(data)
     });
+    sessionStorage.clear();
+    localStorage.clear();
+    window.location.replace("/");
   };
 
   handleInputChange = event => {
@@ -39,7 +45,9 @@ class CreateAccount extends Component {
     const { email, psw, username } = this.state;
     return (
       <div>
-        <h1>Sign up here!</h1>
+        <div className={Style.title}>
+          <h1>Sign up here!</h1>
+        </div>
         <form onSubmit={this.handleSubmit} style={{ border: "1px solid #ccc" }}>
           <div className={Style.container}>
             <h1>Career Slayer </h1>
@@ -107,17 +115,17 @@ class CreateAccount extends Component {
               <input type="checkbox" defaultChecked="checked" name="remember" />
               Remember me{" "}
             </label>
-            <div className="cearfix">
+            <div className={Style.cearfix}>
               <input
                 value="Sign Up"
                 type="submit"
                 className={Style.signupbtn}
               />
-              <button type="button" className={Style.cancelbtn}>
+              <div className={Style.cancelbtn}>
                 <a href="/login" style="color: white">
                   Already have an account?
                 </a>
-              </button>
+              </div>
             </div>
           </div>
         </form>

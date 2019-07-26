@@ -98,7 +98,7 @@ input[type="password"] {
   font-family: "Roboto", sans-serif;
 }
 
-button {
+input[type="submit"] {
   background-color: #4caf50;
   color: white;
   padding: 14px 20px;
@@ -128,13 +128,19 @@ button:hover {
 
 .container {
   margin-top: 100px;
-  margin-right: 200px;
+  min-width: 500px;
   justify-content: center;
-  width: 600px;
+  width: auto;
   font-family: "Roboto", sans-serif;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 span.psw {
   float: right;
   padding-top: 16px;
+}
+
+#sidebar-container {
+  display: none;
 }

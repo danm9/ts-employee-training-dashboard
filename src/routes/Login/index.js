@@ -1,5 +1,7 @@
 import { h, Component } from "preact";
+import Style from "./style.css";
 import axios from "axios";
+import { authenticating } from "../../parse/functions";
 
 class Login extends Component {
   constructor(props) {
@@ -25,8 +27,14 @@ class Login extends Component {
     })
       .then(response => {
         console.log(response.data);
-        localStorage.setItem("session", response.data[0]);
-        localStorage.setItem("objectId", response.data[1]);
+        sessionStorage.clear();
+        sessionStorage.clear();
+
+        sessionStorage.setItem("session", response.data[0]);
+        sessionStorage.setItem("objectId", response.data[1]);
+        if (window.sessionStorage.session && window.sessionStorage.objectId) {
+          sessionStorage.setItem("auth", "true");
+        }
       })
       .then(() => window.location.replace("/"));
   };
@@ -39,16 +47,17 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h1>Career Slayer</h1>
-        <h5>Welcome, please sign in</h5>
+        <h1 style="text-align:center;">Career Slayer</h1>
+        <h4 style="text-align:center;">Welcome, please sign in</h4>
         <form onSubmit={this.handleSubmit}>
-          <div className="imgcontainer">
+          {/*<div className={Style.imgcontainer}>
             <img src="img_avatar2.png" alt="Avatar" className="avatar" />
-          </div>
-          <div className="container">
+          </div>*/}
+          <div className={Style.container}>
             <label htmlFor="uname">
               <b>Username</b>
             </label>
+            <br />
             <input
               type="text"
               placeholder="Enter Username"
@@ -56,9 +65,11 @@ class Login extends Component {
               required
               onChange={this.handleInputChange}
             />
+            <br />
             <label htmlFor="psw">
               <b>Password</b>
             </label>
+            <br />
             <input
               type="password"
               placeholder="Enter Password"
@@ -66,18 +77,25 @@ class Login extends Component {
               required
               onChange={this.handleInputChange}
             />
-            <input type="submit" />
+            <br />
+            <input
+              type="submit"
+              style="background-color: #4caf50; color: white; padding: 14px 20px; margin: 8px 0; width: 100%;"
+            />
             <label>
               <input type="checkbox" defaultChecked="checked" name="remember" />{" "}
               Remember me
             </label>
           </div>
-          <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
-            <button type="button" className="cancelbtn">
+          <div className={Style.container}>
+            {/*<button type="button" className="cancelbtn">
               Cancel
-            </button>
-            <span className="psw">
-              Forgot <a href="#">password?</a>
+        </button>*/}
+            <span className={Style.forgot}>
+              <a href="/forgot">Forgot password?</a>
+            </span>
+            <span className={Style.create}>
+              <a href="/createaccount">Don't already have an account?</a>
             </span>
           </div>
         </form>

@@ -1,3 +1,9 @@
+.title {
+  padding-left: 200px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
 box-sizing:border-box input[type="text"],
 input[type="password"] {
   width: 100%;
@@ -13,7 +19,7 @@ input[type="password"]:focus {
   outline: none;
 }
 form {
-  height: 470px;
+  height: 630px;
   margin-right: 200px;
   min-width: 500px;
 }
@@ -25,28 +31,24 @@ hr {
 .signupbtn {
   background-color: #4caf50;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 15px 20px;
+  margin-top: 10px;
   border: none;
   cursor: pointer;
-  width: 100%;
+  float: right;
+  width: 49%;
 }
-button:hover {
-  opacity: 1;
-}
+
 .cancelbtn {
   padding: 14px 20px;
   background-color: #4caf50;
-  margin-left: 20px;
-}
-.cancelbtn {
+  margin-left: 0px;
+  margin-top: 10px;
   float: left;
-  width: 48%;
+  cursor: pointer;
+  width: 49%;
 }
-.signupbtn {
-  float: right;
-  width: 48%;
-}
+
 .container {
   padding: 16px;
 }

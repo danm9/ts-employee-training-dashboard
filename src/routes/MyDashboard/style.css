@@ -1,7 +1,7 @@
 body {
   font-family: "Roboto", sans-serif;
 
-  margin: 0;
+  padding-left: 200px;
   overflow: hidden;
   overflow-y: auto;
 }
@@ -93,16 +93,16 @@ body {
   font-size: 17px;
   line-height: 1.4;
   width: auto;
+  min-width: 760px;
   height: auto;
-
   padding-left: 30px;
   padding-right: 80px;
   padding-top: 20px;
-  grid-template-columns: 80px repeat(3, 260px);
+  grid-template-columns: 80px repeat(3, 1fr);
   grid-template-rows: repeat(2, 50px);
   border: #333740 solid 2px;
-  margin-right: 65px;
-  margin-left: 65px;
+  margin-right: 70px;
+  margin-left: 70px;
 }
 
 img {
@@ -141,7 +141,6 @@ img {
 }
 
 .table {
-  justify-content: center;
   padding-bottom: 40px;
   display: grid;
   grid-template-columns: 125px repeat(11, 35px);
@@ -149,6 +148,8 @@ img {
   padding-top: 40px;
   font-size: 17px;
   line-height: 1.4;
+  margin-left: 0px;
+  justify-content: center;
 }
 
 .configurationManagement,

@@ -26,7 +26,9 @@ const handleSideBarOnClick = id => {
       route("/About", true);
       break;
     case RouteIDs.SIGNOUT:
-      route("/login", true);
+      sessionStorage.clear();
+      window.location.replace("/");
+      // route("/", true);
       break;
   }
 };

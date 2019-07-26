@@ -3,6 +3,14 @@ import style from "./style.css";
 import "./style";
 import { Sidebar } from "../../components/sidebar";
 import Tagger from "../../components/tagger";
+import {
+  profileImage,
+  skills,
+  skill,
+  nameFirst,
+  nameLast
+} from "../../parse/functions";
+
 export default class MyDashboard extends Component {
   constructor(props) {
     super(props);
@@ -24,15 +32,17 @@ export default class MyDashboard extends Component {
     event.preventDefault();
     skill(this.state.action, this.state.skill);
 
-    // This is the problem
-    skills().then(x => {
-      let list = [];
-      x.map(item => list.push(item.attributes.name + " "));
-      this.setState({ skills: list });
-      console.log(list);
-    });
-
     this.clearForm();
+
+    setTimeout(() => {
+      // This is the problem
+      skills().then(x => {
+        let list = [];
+        x.map(item => list.push(item.attributes.name + " "));
+        this.setState({ skills: list });
+        // console.log(list);
+      });
+    }, 100);
   };
 
   handleInputChange = event => {
@@ -41,7 +51,7 @@ export default class MyDashboard extends Component {
   };
 
   componentDidMount() {
-    profileImage(window.localStorage.objectId).then(image => {
+    profileImage(window.sessionStorage.objectId).then(image => {
       this.setState({ profilePic: image[0].attributes.image });
     });
 
@@ -49,7 +59,7 @@ export default class MyDashboard extends Component {
       let list = [];
       x.map(item => list.push(item.attributes.name + " "));
       this.setState({ skills: list });
-      console.log(list);
+      // console.log(list);
     });
 
     nameFirst().then(data =>
@@ -105,7 +115,7 @@ export default class MyDashboard extends Component {
             />
           </form>
         </div>
-        {/*<div className={style.box}>Knowledge Area</div>*/}
+
         <div className={style.table}>
           <div className={style.knowledgeArea}>Knowledge Area</div>
           <div className={style.capabilityLevel}>Capability Level</div>
