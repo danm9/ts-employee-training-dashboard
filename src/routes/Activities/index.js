@@ -50,6 +50,7 @@ const CardItem = (id, name, description, commentCount, position) => {
 export default class Activities extends Component {
   constructor(props) {
     super(props);
+    // Note: Card names MUST have a unique id otherwise they won't work.
     this.state = {
       columns: [
         {
