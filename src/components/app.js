@@ -26,7 +26,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      authetication: sessionStorage.auth == "true"
+      // authetication: sessionStorage.auth == "true"
+      authetication: true
     };
   }
   /** Gets fired when the route changes.

@@ -2,6 +2,7 @@ import { Component } from "preact";
 import style from "./style.css";
 import { Sidebar } from "../../components/sidebar";
 import ActivityCard from "../../components/activitycard";
+import React from "react";
 
 const Card = props => {
   const { name, description, commentCount, position } = props;
@@ -15,72 +16,37 @@ const Card = props => {
   );
 };
 
-import React from "react";
-import { useDrag } from "react-dnd";
-import { ItemTypes } from "./Constants";
-
-/**
- * Your Component
- */
-export function card({ isDragging, text }) {
-  const [{ opacity }, dragRef] = useDrag({
-    item: { type: ItemTypes.CARD, text },
-    collect: monitor => ({
-      opacity: monitor.isDragging() ? 0.5 : 1
-    })
-  });
-  return (
-    <div ref={dragRef} style={{ opacity }}>
-      {text}
-    </div>
-  );
-}
 export default class Activities extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      columns: [
+        {
+          id: "todo",
+          name: "Todo"
+        }
+      ],
+      cards: [
+        {
+          name: "Test",
+          column: "todo"
+        }
+      ]
+    };
   }
 
   render() {
+    const { columns } = this.state;
     return (
       <div>
         <Sidebar />
+
         <div className={style.column}>
-          {[
-            {
-              name: "React Training",
-              description:
-                "Today I'm working on getting my development environment setup and working on various debug tasks",
-              position: "CNST"
-            },
-            {
-              name: "Clean Coder",
-              description:
-                "Today I'm working on getting my development environment setup and working on various debug tasks",
-              position: "QUAL"
-            },
-            {
-              name: "MVC PluralSight Training",
-              description:
-                "Today I'm working on getting my development environment setup and working on various debug tasks",
-              position: "CNST"
-            },
-            {
-              name: "Code Reviews",
-              description:
-                "Today I'm working on getting my development environment setup and working on various debug tasks",
-              position: "QUAL"
-            }
-          ].map(i => {
-            return (
-              <Card
-                className
-                name={i.name}
-                description={i.description}
-                position={i.position}
-                commentCount={i.commentCount || "0"}
-              />
-            );
-          })}
+          <h1>{columns[0].name}</h1>
+          <Card />
+        </div>
+        <div className={style.column}>
+          <Card />
         </div>
       </div>
     );
