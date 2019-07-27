@@ -1,8 +1,17 @@
 import style from "./style.css";
 
 const ActivityCard = props => {
-  console.log(props);
-  const { title, description, comments, position } = props;
+  const {
+    title,
+    description,
+    comments,
+    position,
+    options,
+    currentOption,
+    handleOptionChanged,
+    item,
+    currentColumn
+  } = props;
   return (
     <div className={style.cardContainer}>
       <div className={style.cardGrid}>
@@ -17,6 +26,23 @@ const ActivityCard = props => {
         <div className={style.cardSeperator} />
         <div className={style.cardFooter}>
           <button>{comments || "0"} Comments</button>
+          <select
+            onChange={e => {
+              console.log(item);
+              handleOptionChanged(e.target.value, item, currentColumn);
+            }}
+          >
+            {options.map(option => {
+              return (
+                <option
+                  selected={currentOption === option.value}
+                  value={option.value}
+                >
+                  {option.name}
+                </option>
+              );
+            })}
+          </select>
         </div>
       </div>
     </div>

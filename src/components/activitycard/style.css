@@ -60,6 +60,10 @@
   color: darkgray;
 }
 
+.cardFooter select {
+  float: right;
+}
+
 .cardHeader h1 {
   font-size: 1.5em;
   padding: 0px;
