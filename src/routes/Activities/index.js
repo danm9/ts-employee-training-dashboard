@@ -1,8 +1,10 @@
 import { Component } from "preact";
+import axios from "axios";
 import style from "./style.css";
 import { Sidebar } from "../../components/sidebar";
 import ActivityCard from "../../components/activitycard";
 import React from "react";
+import { parse } from "../../parse/parse.config";
 
 const Card = props => {
   const {
@@ -71,7 +73,8 @@ export default class Activities extends Component {
           name: "Done",
           cards: []
         }
-      ]
+      ],
+      positions: ["Todo", "Doing", "Done"]
     };
   }
 
@@ -151,14 +154,74 @@ export default class Activities extends Component {
     this.setState({ columns: columns });
   }
 
+  handleInputChange = event => {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleOnSubmitForm = event => {
+    event.preventDefault();
+
+    const { cardName, cardDescription, cardPosition } = this.state;
+
+    axios({
+      method: "post",
+      url: parse.url + "classes/ActivitiesCard",
+      headers: {
+        "X-Parse-Application-id": parse.appId,
+        "X-Parse-REST-API-Key": parse.cKey,
+        "Content-Type": "application/json"
+      },
+      data: {
+        name: this.state.cardName,
+        desc: this.state.cardDescription,
+        positions: this.state.cardPosition,
+        user: parse.userPointer
+      }
+    });
+  };
+
   render() {
-    const { columns } = this.state;
+    const { columns, positions } = this.state;
     return (
       <div>
         <Sidebar />
         <div className={style.columnContainer}>
           {this.createAndFillColumns()}
         </div>
+        <form
+          onSubmit={this.handleOnSubmitForm}
+          style="margin: auto; text-align: center;"
+        >
+          <input
+            type="text"
+            placeholder="Name"
+            onChange={this.handleInputChange}
+            name="cardName"
+          />{" "}
+          <br />
+          <input
+            type="text"
+            placeholder="description"
+            onChange={this.handleInputChange}
+            name="cardDescription"
+          />{" "}
+          <br />
+          <select name="cardPosition" onChange={this.handleInputChange} id="">
+            {positions.map(x => {
+              return (
+                <option selected={positions[0] == x} value={x}>
+                  {x}
+                </option>
+              );
+            })}
+          </select>
+          <input
+            type="submit"
+            onChange={this.handleOnSubmitForm}
+            value="Submit"
+          />
+        </form>
       </div>
     );
   }

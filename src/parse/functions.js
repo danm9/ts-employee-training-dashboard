@@ -3,7 +3,7 @@ import axios from "axios";
 
 const parseURL = "http://localhost:1337/parse/";
 
-const userPointer = {
+export const userPointer = {
   __type: "Pointer",
   className: "_User",
   objectId: window.sessionStorage.objectId
