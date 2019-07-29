@@ -166,7 +166,7 @@ export default class Activities extends Component {
 
     axios({
       method: "post",
-      url: parse.url + "classes/ActivitiesCard",
+      url: parse.url + "functions/card",
       headers: {
         "X-Parse-Application-id": parse.appId,
         "X-Parse-REST-API-Key": parse.cKey,
@@ -175,7 +175,7 @@ export default class Activities extends Component {
       data: {
         name: this.state.cardName,
         desc: this.state.cardDescription,
-        positions: this.state.cardPosition,
+        position: this.state.cardPosition,
         user: parse.userPointer
       }
     });
