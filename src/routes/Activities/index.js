@@ -5,7 +5,7 @@ import { Sidebar } from "../../components/sidebar";
 import ActivityCard from "../../components/activitycard";
 import React from "react";
 import { parse } from "../../parse/parse.config";
-import { receiveCard } from "../../parse/functions";
+import { receiveCard, findCard, updateCard } from "../../parse/functions";
 
 const Card = props => {
   const {
@@ -114,8 +114,15 @@ export default class Activities extends Component {
 
   handleOptionChanged(option, card, columnName) {
     console.log(card);
+    console.log("===============");
+    console.log(option);
+
     this.removeCard(columnName, card);
     this.addCard(option, card);
+    findCard(card).then(obj => {
+      const cardId = obj[0].id;
+      updateCard(cardId, option);
+    });
   }
 
   /**

@@ -1,5 +1,6 @@
 import Parse from "parse";
 import axios from "axios";
+import parse from "./parse.config";
 
 const parseURL = "http://localhost:1337/parse/";
 
@@ -90,6 +91,15 @@ export const passwordReset = email => {
   });
 };
 
+export const findCard = card => {
+  const Card = Parse.Object.extend("Card");
+  const query = new Parse.Query(Card);
+  query.equalTo("user", userPointer);
+  query.equalTo("name", card.name);
+  query.equalTo("desc", card.description);
+  return query.find();
+};
+
 export const profileImage = async objectId => {
   const query = new Parse.Query(Parse.User);
   query.equalTo("objectId", objectId);
@@ -137,6 +147,21 @@ export const skill = (action, name) => {
       skill: action,
       name: name,
       user: userPointer
+    }
+  });
+};
+
+export const updateCard = (objectId, change) => {
+  axios({
+    method: "put",
+    url: parseURL + "classes/Card/" + objectId,
+    headers: {
+      "X-Parse-Application-id": appId,
+      "X-Parse-REST-API-Key": cKey,
+      "Content-Type": "application/json"
+    },
+    data: {
+      position: change
     }
   });
 };
