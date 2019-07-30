@@ -63,7 +63,10 @@ export default class Activities extends Component {
           name: "Doing",
           cards: [
             CardItem(2, "test card", "some description", 20, "EST"),
-            CardItem(3, "test card", "some description", 20, "EST")
+            CardItem(3, "test card", "some description", 20, "EST"),
+            CardItem(4, "test card", "some description", 20, "EST"),
+            CardItem(5, "test card", "some description", 20, "EST"),
+            CardItem(6, "test card", "some description", 20, "EST")
           ]
         },
         {
