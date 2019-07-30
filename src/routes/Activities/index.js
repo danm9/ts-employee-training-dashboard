@@ -183,7 +183,7 @@ export default class Activities extends Component {
       data: {
         name: this.state.cardName,
         desc: this.state.cardDescription,
-        position: this.state.cardPosition,
+        position: this.state.cardPosition || "todo",
         user: parse.userPointer
       }
     });
