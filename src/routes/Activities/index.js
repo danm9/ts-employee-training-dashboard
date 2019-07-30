@@ -5,6 +5,7 @@ import { Sidebar } from "../../components/sidebar";
 import ActivityCard from "../../components/activitycard";
 import React from "react";
 import { parse } from "../../parse/parse.config";
+import { receiveCard } from "../../parse/functions";
 
 const Card = props => {
   const {
@@ -179,7 +180,57 @@ export default class Activities extends Component {
         user: parse.userPointer
       }
     });
+
+    document.getElementById("formId").reset();
   };
+
+  componentDidMount() {
+    receiveCard().then(cards => {
+      const list = [];
+      const todoList = [];
+      const doingList = [];
+      const doneList = [];
+      console.log(cards);
+      cards.map((card, index) => {
+        const column = {};
+        const { name, desc, position } = card.attributes;
+        if (position === "Todo") {
+          const todoCard = CardItem(index, name, desc, 20, "EST");
+          todoList.push(todoCard);
+        }
+
+        if (position === "Doing") {
+          const doingCard = CardItem(index, name, desc, 20, "EST");
+          doingList.push(doingCard);
+        }
+
+        if (position === "Done") {
+          const doneCard = CardItem(index, name, desc, 20, "EST");
+          doneList.push(doneCard);
+        }
+      });
+
+      list.push({
+        id: "todo",
+        name: "Todo",
+        cards: todoList
+      });
+
+      list.push({
+        id: "doing",
+        name: "Doing",
+        cards: doingList
+      });
+
+      list.push({
+        id: "done",
+        name: "Done",
+        cards: doneList
+      });
+
+      this.setState({ columns: list });
+    });
+  }
 
   render() {
     const { columns, positions } = this.state;
@@ -192,6 +243,7 @@ export default class Activities extends Component {
         <form
           onSubmit={this.handleOnSubmitForm}
           style="margin: auto; text-align: center;"
+          id="formId"
         >
           <input
             type="text"

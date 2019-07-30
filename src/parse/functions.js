@@ -110,6 +110,13 @@ export const InitialSessionValue = () => {
   return false;
 };
 
+export const receiveCard = () => {
+  const Card = Parse.Object.extend("Card");
+  const query = new Parse.Query(Card);
+  query.equalTo("user", userPointer);
+  return query.find();
+};
+
 export const skills = () => {
   const Skills = Parse.Object.extend("Skills");
   const query = new Parse.Query(Skills);
