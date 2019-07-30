@@ -201,21 +201,23 @@ export default class Activities extends Component {
       cards.map((card, index) => {
         const column = {};
         const { name, desc, position } = card.attributes;
-        if (position === "Todo") {
+        if (position === "todo") {
           const todoCard = CardItem(index, name, desc, 20, "EST");
           todoList.push(todoCard);
+          console.log(todoList);
         }
 
-        if (position === "Doing") {
+        if (position === "doing") {
           const doingCard = CardItem(index, name, desc, 20, "EST");
           doingList.push(doingCard);
         }
 
-        if (position === "Done") {
+        if (position === "done") {
           const doneCard = CardItem(index, name, desc, 20, "EST");
           doneList.push(doneCard);
         }
       });
+      console.log(todoList);
 
       list.push({
         id: "todo",
@@ -234,6 +236,7 @@ export default class Activities extends Component {
         name: "Done",
         cards: doneList
       });
+      console.log(list);
 
       this.setState({ columns: list });
     });
