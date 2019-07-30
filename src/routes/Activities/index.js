@@ -113,10 +113,6 @@ export default class Activities extends Component {
   }
 
   handleOptionChanged(option, card, columnName) {
-    console.log(card);
-    console.log("===============");
-    console.log(option);
-
     this.removeCard(columnName, card);
     this.addCard(option, card);
     findCard(card).then(obj => {
@@ -197,14 +193,12 @@ export default class Activities extends Component {
       const todoList = [];
       const doingList = [];
       const doneList = [];
-      console.log(cards);
       cards.map((card, index) => {
         const column = {};
         const { name, desc, position } = card.attributes;
         if (position === "todo") {
           const todoCard = CardItem(index, name, desc, 20, "EST");
           todoList.push(todoCard);
-          console.log(todoList);
         }
 
         if (position === "doing") {
@@ -217,7 +211,6 @@ export default class Activities extends Component {
           doneList.push(doneCard);
         }
       });
-      console.log(todoList);
 
       list.push({
         id: "todo",
@@ -236,7 +229,6 @@ export default class Activities extends Component {
         name: "Done",
         cards: doneList
       });
-      console.log(list);
 
       this.setState({ columns: list });
     });
