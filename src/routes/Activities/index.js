@@ -171,6 +171,10 @@ export default class Activities extends Component {
 
     const { cardName, cardDescription, cardPosition } = this.state;
 
+    const numberGenerator =
+      Math.floor(Math.random() * 9000000000000000000) +
+      1000000000000000000 * Math.random();
+
     axios({
       method: "post",
       url: parse.url + "functions/card",
@@ -187,6 +191,29 @@ export default class Activities extends Component {
       }
     });
 
+    const columns = this.state.columns;
+
+    if (!cardPosition || cardPosition === "todo" || cardPosition === "Todo") {
+      columns[0].cards.push(
+        CardItem(numberGenerator, cardName, cardDescription, 20, "EST")
+      );
+    }
+
+    if (cardPosition === "doing" || cardPosition === "Doing") {
+      columns[1].cards.push(
+        CardItem(numberGenerator, cardName, cardDescription, 20, "EST")
+      );
+    }
+
+    if (cardPosition == "done" || cardPosition == "Done") {
+      columns[2].cards.push(
+        CardItem(numberGenerator, cardName, cardDescription, 20, "EST")
+      );
+    }
+
+    this.setState({ cardPosition: "Todo" });
+
+    this.setState({ columns });
     document.getElementById("formId").reset();
   };
 
