@@ -199,17 +199,17 @@ export default class Activities extends Component {
       cards.map((card, index) => {
         const column = {};
         const { name, desc, position } = card.attributes;
-        if (position === "todo") {
+        if (position === "todo" || position === "Todo") {
           const todoCard = CardItem(index, name, desc, 20, "EST");
           todoList.push(todoCard);
         }
 
-        if (position === "doing") {
+        if (position === "doing" || position === "Doing") {
           const doingCard = CardItem(index, name, desc, 20, "EST");
           doingList.push(doingCard);
         }
 
-        if (position === "done") {
+        if (position === "done" || position === "Done") {
           const doneCard = CardItem(index, name, desc, 20, "EST");
           doneList.push(doneCard);
         }
