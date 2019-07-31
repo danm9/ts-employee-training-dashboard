@@ -1,5 +1,5 @@
 .columnContainer {
-  margin-left: 200px;
+  padding-left: 200px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-content: center;
@@ -14,7 +14,8 @@
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  height: 200px;
+  height: 0px;
+  width: 400px;
 }
 
 .column > h1 {

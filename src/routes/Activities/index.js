@@ -247,7 +247,7 @@ export default class Activities extends Component {
         </div>
         <form
           onSubmit={this.handleOnSubmitForm}
-          style="margin: auto; text-align: center;"
+          style="margin-left: 200px; margin-top: 0px; float: left;"
           id="formId"
         >
           <input
