@@ -246,3 +246,12 @@ img {
   min-height: 100%;
   width: 100%;
 }
+
+.dot {
+  height: 19px;
+  width: 19px;
+  background-color: #333740;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 3px;
+}

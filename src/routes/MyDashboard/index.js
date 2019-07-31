@@ -133,31 +133,150 @@ export default class MyDashboard extends Component {
           <div className={style.requirements}>Requirements</div>
           <div className={style.testing}>Testing</div>
           <div className={style.introductory}>Introductory</div>
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
           <div className={style.competence}>Competence</div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
+          <div className={style.blank} />
+          <div className={style.blank}>
+            <span class={style.dot} />
+          </div>
           <div className={style.blank} />
           <div className={style.blank} />
           <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
+          <div className={style.blank}>
+            <span class={style.dot} />
+          </div>
+          <div className={style.blank}>
+            <span class={style.dot} />
+          </div>
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
           <div className={style.leadership}>Leadership</div>
           <div className={style.blank} />
+          <div className={style.blank}>
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5a43f059b894c90d5c057252/0x0.png"
+              alt="TaxSlayer"
+              width="28"
+              height="28"
+            />
+          </div>
           <div className={style.blank} />
           <div className={style.blank} />
           <div className={style.blank} />
@@ -166,8 +285,9 @@ export default class MyDashboard extends Component {
           <div className={style.blank} />
           <div className={style.blank} />
           <div className={style.blank} />
-          <div className={style.blank} />
-          <div className={style.blank} />
+          <div className={style.blank}>
+            <span class={style.dot} />
+          </div>
           <div className={style.mastery}>Mastery</div>
           <div className={style.blank} />
           <div className={style.blank} />

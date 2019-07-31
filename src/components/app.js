@@ -26,8 +26,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // authetication: sessionStorage.auth == "true"
-      authetication: true
+      authetication: sessionStorage.auth == "true"
+      //authetication: true
     };
   }
   /** Gets fired when the route changes.
@@ -35,7 +35,7 @@ export default class App extends Component {
    *	@param {string} event.url	The newly routed URL
    */
   handleRoute = e => {
-    // this.setState({ authetication: sessionStorage.auth == "true" });
+    this.setState({ authetication: sessionStorage.auth == "true" });
     this.currentUrl = e.url;
   };
 
