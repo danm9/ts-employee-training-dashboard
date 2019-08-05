@@ -302,13 +302,13 @@ export default class MyDashboard extends Component {
           <div className={style.blank} />
         </div>
 
-        <div class={style.home}>
+        {/*<div class={style.home}>
           <Tagger
             activeTagsDidChange={tags => {
               console.log(tags);
             }}
           />
-        </div>
+          </div>*/}
 
         {/*<div className={style.grid2}>
           <div className={style.category}>Category</div>

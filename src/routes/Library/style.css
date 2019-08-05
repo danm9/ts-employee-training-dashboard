@@ -39,6 +39,8 @@ body {
   display: grid;
   grid-template-columns: auto auto auto;
   /*padding-left: 200px;*/
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
   padding-top: 30px;
 }
 
