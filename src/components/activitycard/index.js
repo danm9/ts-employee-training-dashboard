@@ -10,7 +10,8 @@ const ActivityCard = props => {
     currentOption,
     handleOptionChanged,
     item,
-    currentColumn
+    currentColumn,
+    handleClickDelete
   } = props;
   return (
     <div className={style.cardContainer}>
@@ -18,6 +19,13 @@ const ActivityCard = props => {
         <div className={style.cardHeader}>
           <h1>{title}</h1>
           <h3>{position}</h3>
+          <button
+            onClick={e => {
+              handleClickDelete(item, currentColumn);
+            }}
+          >
+            XXX
+          </button>
         </div>
         <div className={style.cardSeperator} />
         <div className={style.cardBody}>

@@ -60,6 +60,17 @@ export const getCourseLibrary = async () => {
   });
 };
 
+export const deleteCard = objectId => {
+  axios({
+    method: "delete",
+    url: parseURL + "classes/Card/" + objectId,
+    headers: {
+      "X-Parse-Application-id": appId,
+      "X-Parse-REST-API-Key": cKey
+    }
+  });
+};
+
 export const getUserWithSkill = name => {};
 
 export const getUserwithId = objectId => {};

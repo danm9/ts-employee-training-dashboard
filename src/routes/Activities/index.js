@@ -5,7 +5,12 @@ import { Sidebar } from "../../components/sidebar";
 import ActivityCard from "../../components/activitycard";
 import React from "react";
 import { parse } from "../../parse/parse.config";
-import { receiveCard, findCard, updateCard } from "../../parse/functions";
+import {
+  receiveCard,
+  findCard,
+  updateCard,
+  deleteCard
+} from "../../parse/functions";
 
 const Card = props => {
   const {
@@ -16,7 +21,8 @@ const Card = props => {
     position,
     options,
     currentColumn,
-    handleOptionChanged
+    handleOptionChanged,
+    handleClickDelete
   } = props;
   return (
     <ActivityCard
@@ -29,6 +35,7 @@ const Card = props => {
       handleOptionChanged={handleOptionChanged}
       item={item}
       currentColumn={currentColumn}
+      handleClickDelete={handleClickDelete}
     />
   );
 };
@@ -108,6 +115,7 @@ export default class Activities extends Component {
               options={this.state.columns.map(column => {
                 return { value: column.id, name: column.name };
               })}
+              handleClickDelete={this.handleClickDelete.bind(this)}
             />
           );
         })}
@@ -159,6 +167,16 @@ export default class Activities extends Component {
       }
     });
     this.setState({ columns: columns });
+  }
+
+  handleClickDelete(card, columnName) {
+    console.log(card);
+    findCard(card).then(obj => {
+      const cardid = obj[0].id;
+      deleteCard(cardid);
+    });
+
+    this.removeCard(columnName, card);
   }
 
   handleInputChange = event => {
